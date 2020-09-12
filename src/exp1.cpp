@@ -1,4 +1,4 @@
-#include "example.h"
+#include "exp1.h"
 
 double add_numbers(const double f1, const double f2)
 {

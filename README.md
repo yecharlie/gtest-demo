@@ -2,8 +2,13 @@
 [![Coverage Status](https://coveralls.io/repos/bast/gtest-demo/badge.png?branch=master)](https://coveralls.io/r/bast/gtest-demo?branch=master)
 [![License](https://img.shields.io/badge/license-%20BSD--3-blue.svg)](../master/LICENSE)
 
+# gtest-demo (yecharlie's revision)
 
-# gtest-demo
+This fork adjusts parts of naming convertion, moves googletest building's results along side with tests' as Google Test official demo shows (whatever, just a style), by the way adds some frequently used configurations of CMake.
+
+Additionally, some parts of CMake 's configurations are removed for persol interest. (GNU standards & coverage)
+
+# gtest-demo (original)
 
 C/C++ unit test demo using [Google Test](https://code.google.com/p/googletest) deployed to
 [Travis-CI](https://travis-ci.org/bast/gtest-demo/builds) with test coverage

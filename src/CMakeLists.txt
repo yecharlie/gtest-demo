@@ -1,15 +1,15 @@
-add_library(example "")
+add_library(libexample SHARED "")
 
 target_sources(
-    example
+    libexample
     PRIVATE
-        example.cpp
-    PUBLIC
-        ${CMAKE_CURRENT_LIST_DIR}/example.h
+        exp1.cpp
+    PUBLIC # optional
+        ${CMAKE_CURRENT_LIST_DIR}/exp1.h
     )
 
 target_include_directories(
-    example
+    libexample
     PUBLIC
         ${CMAKE_CURRENT_LIST_DIR}
     )

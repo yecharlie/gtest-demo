@@ -1,25 +1,30 @@
-cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
 
 project(gtest-demo CXX)
 
-# place binaries and libraries according to GNU standards
-include(GNUInstallDirs)
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR})
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR})
+# enable c++ 11
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# we use this to get code coverage
-if(CMAKE_CXX_COMPILER_ID MATCHES GNU)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+# take respectives flags for debug & release process 
+set(CMAKE_CXX_FLAGS_DEBUG_INIT "-std=c++11 -fno-omit-frame-pointer")
+set(CMAKE_CXX_FLAGS_RELEASE_INIT "-std=c++11 -g -O2")
+
+# default build type : Debug
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+
+# respective macro definitions
+message("CMAKE_BUILD_TYPE = ${CMAKE_BUILD_TYPE}")
+if(CMAKE_BUILD_TYPE MATCHES Debug)
+    add_definitions("-D_DEBUG")
+elseif(CMAKE_BUILD_TYPE MATCHES Release)
+else()
 endif()
 
 add_subdirectory(src)
 
-include(cmake/googletest.cmake)
-fetch_googletest(
-    ${PROJECT_SOURCE_DIR}/cmake
-    ${PROJECT_BINARY_DIR}/googletest
-    )
-
+# CTest related
 enable_testing()
-add_subdirectory(test)
+add_subdirectory(tests)
