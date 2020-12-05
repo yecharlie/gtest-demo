@@ -16,7 +16,7 @@ target_include_directories(
 # respective macro definitions
 message("CMAKE_BUILD_TYPE = ${CMAKE_BUILD_TYPE}")
 if(CMAKE_BUILD_TYPE MATCHES Debug)
-    target_compile_definitions(${PROJECT_NAME} PUBLIC _DEBUG)
+    target_compile_definitions(libexample PUBLIC _DEBUG)
 elseif(CMAKE_BUILD_TYPE MATCHES Release)
 else()
 endif()
