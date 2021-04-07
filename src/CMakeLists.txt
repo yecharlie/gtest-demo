@@ -1,4 +1,4 @@
-add_library(libexample SHARED "")
+add_library(libexample "")
 
 target_sources(
     libexample
