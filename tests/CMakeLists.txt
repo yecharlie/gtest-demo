@@ -48,5 +48,5 @@ add_test(
   NAME
     example.unittest
   COMMAND
-    ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}/example.unittest
+    $<TARGET_FILE:example.unittest>
   )
